@@ -1,0 +1,8 @@
+Aliens Invasion
+
+A game with a ship that is on the screen center.
+The player can move the ship right and left and shooting bullets using keyboard.
+When the game begins the sky fills with aliens and moves across the screen.
+To destroy aliens the player must shoot them, when it kills one of them another appears and moces faster than the previous ones.
+If any aliens hit the player he looses one of the ship counters.
+Loosing 3 ships the game ends.
