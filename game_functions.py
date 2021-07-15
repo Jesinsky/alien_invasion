@@ -9,7 +9,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_right = True
     elif event.key == pygame.K_a:
         ship.moving_left = True
-    elif event.key == pygame.K_KP_ENTER:
+    elif event.key == pygame.K_KP_0:
         # Create a new bullet and add it to the bullets group.
         new_bullet = Bullet(ai_settings, screen, ship)
         bullets.add(new_bullet)
