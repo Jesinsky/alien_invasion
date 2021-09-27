@@ -46,16 +46,23 @@ def update_bullets(ai_settings, screen, ship, aliens, bullets):
     # If so, get rid of the bullet and the alien.
     collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 
-    if len(aliens) == 0:
-        # Destroy existing bullets and create a new fleet.
-        bullets.empty()
-        create_fleet(ai_settings, screen, ship, aliens)
-
     # Get rid of bullets that have disappeared.
     for bullet in bullets.copy():
         if bullet.rect.bottom <= 0:
             bullets.remove(bullet)  
 
+    check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets)
+
+def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
+    """Respond to bullet-alien collisions."""
+    # Remove any bullets and aliens that have collided.
+    collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+    if len(aliens) == 0:
+        # Destroy existing bullets and create a new fleet.
+        bullets.empty()
+        create_fleet(ai_settings, screen, ship, aliens)
+        
 def update_screen(ai_settings, screen, ship, aliens, bullets):
     """Update the screen during earch pass through the loop."""
     # Redraw the screen during each pass through the loop.
